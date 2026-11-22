@@ -165,6 +165,6 @@ Terminology: **Sunlight during stay** is time counted as sunlit; **Earth above t
 
 ### Polar rendering correction — 15 November 2026
 
-Polar LOLA patches now use quantized meshes with oct-encoded relief normals, matching the surrounding QuickMap provider. The earlier heightmap replacements had no vertex normals even though the shared provider advertised them, which selected an incompatible lighting shader. Exact-pole normals are stable across longitude, and collapsed Cartesian triangles retain their geographic UV coverage for height sampling.
+Polar LOLA patches now use quantized meshes with oct-encoded relief normals, matching the surrounding QuickMap provider. The earlier heightmap replacements had no vertex normals even though the shared provider advertised them, which selected an incompatible lighting shader. Exact-pole normals are stable across longitude, and collapsed Cartesian triangles retain their geographic UV coverage for height sampling..
 
 The polar image overlay now samples the same `wac_nac_nacroi` orthographic north/south basemaps used by ACT QuickMap (`lunar-orthonp` / `lunar-orthosp`). It reprojects those native 512-pixel tiles into geographic cap tiles, with independent source/output cache versioning. This replaces the separate Moon Trek WAC/NAC overlay; the numerical LOLA horizons and JPL calculations are unchanged. Tests cover normal availability, outward relief normals, height interpolation at both exact poles, and the north/south orthographic cardinal directions.
